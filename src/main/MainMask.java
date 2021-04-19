@@ -2,35 +2,24 @@ package main;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Properties;
 
-import org.geojson.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.fraunhofer.iosb.ilt.frostserver.messagebus.MessageBusFactory;
-import de.fraunhofer.iosb.ilt.frostserver.model.Datastream;
 import de.fraunhofer.iosb.ilt.frostserver.model.EntityType;
-import de.fraunhofer.iosb.ilt.frostserver.model.FeatureOfInterest;
-import de.fraunhofer.iosb.ilt.frostserver.model.Observation;
-import de.fraunhofer.iosb.ilt.frostserver.model.ObservedProperty;
-import de.fraunhofer.iosb.ilt.frostserver.model.Sensor;
 import de.fraunhofer.iosb.ilt.frostserver.model.Thing;
 import de.fraunhofer.iosb.ilt.frostserver.model.core.Entity;
 import de.fraunhofer.iosb.ilt.frostserver.model.core.EntitySetImpl;
 import de.fraunhofer.iosb.ilt.frostserver.model.core.Id;
-import de.fraunhofer.iosb.ilt.frostserver.model.core.IdLong;
 import de.fraunhofer.iosb.ilt.frostserver.model.core.IdString;
-import de.fraunhofer.iosb.ilt.frostserver.model.ext.TimeInstant;
-import de.fraunhofer.iosb.ilt.frostserver.model.ext.TimeInterval;
-import de.fraunhofer.iosb.ilt.frostserver.model.ext.UnitOfMeasurement;
 import de.fraunhofer.iosb.ilt.frostserver.parser.path.PathParser;
 import de.fraunhofer.iosb.ilt.frostserver.parser.query.QueryParser;
 import de.fraunhofer.iosb.ilt.frostserver.path.PathElementEntity;
 import de.fraunhofer.iosb.ilt.frostserver.path.ResourcePath;
 import de.fraunhofer.iosb.ilt.frostserver.path.Version;
-import de.fraunhofer.iosb.ilt.frostserver.persistence.pgjooq.imp.PostgresPersistenceManagerLong;
+import de.fraunhofer.iosb.ilt.frostserver.persistence.pgjooq.imp.PostgresPersistenceManagerString;
 import de.fraunhofer.iosb.ilt.frostserver.query.Query;
 import de.fraunhofer.iosb.ilt.frostserver.settings.CoreSettings;
 import de.fraunhofer.iosb.ilt.frostserver.util.exception.IncompleteEntityException;
@@ -45,7 +34,7 @@ public class MainMask {
     private static final String KEY_TEMP_PATH = "tempPath";
     private static final String CONFIG_FILE_NAME = "Mask.properties";
     
-    private PostgresPersistenceManagerLong ppm;
+    private PostgresPersistenceManagerString ppm;
     private CoreSettings coreSettings;
     private MessageBusFactory messageBusFactory;
     
@@ -53,7 +42,7 @@ public class MainMask {
     public MainMask() throws IOException {
     	String configFileName = "src/" + CONFIG_FILE_NAME;
     	this.coreSettings = loadCoreSettings(configFileName);
-		this.ppm = new PostgresPersistenceManagerLong();
+		this.ppm = new PostgresPersistenceManagerString();
 		this.ppm.init(coreSettings);
 		MessageBusFactory.init(coreSettings);
 		
@@ -76,8 +65,8 @@ public class MainMask {
 	
 	
 	private Entity<?> getEntityById(EntityType et, String Id) {
-		IdString idLong = new IdString(Id);
-		Entity<?> rtn = ppm.get(et, idLong);
+		IdString idString = new IdString(Id);
+		Entity<?> rtn = ppm.get(et, idString);
 
 		return rtn;
 	}
@@ -157,7 +146,7 @@ public class MainMask {
 //		mmsk.ppm.commit();
 		
 		// Output result using Get
-		String queryString = "$count=true";
+		String queryString = "$count=true&$orderby=@iot.id asc";
 		EntitySetImpl entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.THING, queryString);
 		System.out.println("------------------------------------");
 		System.out.println("Try get.");
