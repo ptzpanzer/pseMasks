@@ -45,7 +45,6 @@ public class MainMask {
 		this.ppm = new PostgresPersistenceManagerString();
 		this.ppm.init(coreSettings);
 		MessageBusFactory.init(coreSettings);
-		
     }
  
 
@@ -112,38 +111,37 @@ public class MainMask {
 		
 		
 		// Get an entity with EntityType and ID.
-//		Thing ob = (Thing) mmsk.getEntityById(EntityType.THING, (long)1);
-//		System.out.println("------------------------------------");
-//		System.out.println(ob.getName() + " , " + ob.getDescription());
-//		
-//		System.out.println("------------------------------------");
-//		Thing ob2 = (Thing) mmsk.getEntityById(EntityType.THING, (long)2);
-//		System.out.println(ob2.getName());
-//		System.out.println(ob2.getDescription());
+		Thing th = (Thing) mmsk.getEntityById(EntityType.THING, "saqn:t:grimm-aerosol.com:edm80opc:sn19001");
+		System.out.println("------------------------------------");
+		System.out.println(th.getName() + " , " + th.getDescription());
+		
+		System.out.println("------------------------------------");
+		Thing th2 = (Thing) mmsk.getEntityById(EntityType.THING, "saqn:t:grimm-aerosol.com:edm80opc:sn19004");
+		System.out.println(th2.getName() + " , " + th2.getDescription());
 		
 		
 		// Create and insert
-//		Thing myThing1 = new Thing();
-//		myThing1.setName("myThing_1");
-//		myThing1.setDescription("Description for myThing_1");
-//		boolean success = mmsk.insert(myThing1);
-//		System.out.println("------------------------------------");
-//		System.out.println("Try create and insert.");
-//		System.out.format("Inserting Thing with id \"%s\".\n", myThing1.getId().toString());
-//		
-//		Thing myThing2 = new Thing();
-//		myThing2.setName("myThing_2");
-//		myThing2.setDescription("Description for myThing_2");
-//		success = mmsk.insert(myThing2);
-//		System.out.format("Inserting Thing with id \"%s\".\n", myThing2.getId().toString());
-//		
-//		Thing myThing3 = new Thing();
-//		myThing3.setName("myThing_3");
-//		myThing3.setDescription("Description for myThing_3");
-//		success = mmsk.insert(myThing3);
-//		System.out.format("Inserting Thing with id \"%s\".\n", myThing3.getId().toString());
-//		
-//		mmsk.ppm.commit();
+		Thing myThing1 = new Thing();
+		myThing1.setName("myThing_1");
+		myThing1.setDescription("Description for myThing_1");
+		boolean success = mmsk.insert(myThing1);
+		System.out.println("------------------------------------");
+		System.out.println("Try create and insert.");
+		System.out.format("Inserting Thing with id \"%s\".\n", myThing1.getId().toString());
+		
+		Thing myThing2 = new Thing();
+		myThing2.setName("myThing_2");
+		myThing2.setDescription("Description for myThing_2");
+		success = mmsk.insert(myThing2);
+		System.out.format("Inserting Thing with id \"%s\".\n", myThing2.getId().toString());
+		
+		Thing myThing3 = new Thing();
+		myThing3.setName("myThing_3");
+		myThing3.setDescription("Description for myThing_3");
+		success = mmsk.insert(myThing3);
+		System.out.format("Inserting Thing with id \"%s\".\n", myThing3.getId().toString());
+		
+		mmsk.ppm.commit();
 		
 		// Output result using Get
 		String queryString = "$count=true&$orderby=@iot.id asc";
@@ -157,52 +155,52 @@ public class MainMask {
 		}
 		
 		
-//		//Try Update
-//		queryString = "$filter=name eq \'myThing_2\' and description eq \'Description for myThing_2\'";
-//		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.THING, queryString);
-//		Thing target = (Thing) entityList.toArray()[0];
-//		target.setName("mything2_Updated");
-//		target.setDescription("Updated description for myThing_2");
-//		IdLong id = (IdLong) target.getId();
-//		success = mmsk.update(target, id);
-//		mmsk.ppm.commit();
-//		System.out.println("------------------------------------");
-//		System.out.println("Try Update myThing_2.");
-//		
-//		// Output result using Get
-//		queryString = "$count=true";
-//		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.THING, queryString);
-//		System.out.println("------------------------------------");
-//		System.out.println("Try get.");
-//		System.out.println("Return count: " + entityList.getCount());
-//		for( Object element: entityList.toArray() ) {
-//			Thing ob = (Thing) element;
-//			System.out.println(ob.getId() + " , " + ob.getName() + " , " + ob.getDescription());
-//		}
-//
-//
-//		//Try Delete
-//		queryString = "$filter=name eq \'myThing_3\' and description eq \'Description for myThing_3\'";
-//		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.THING, queryString);
-//		target = (Thing) entityList.toArray()[0];
-//		id = (IdLong) target.getId();
-//		success = mmsk.delete(EntityType.THING, id);
-//		mmsk.ppm.commit();
-//		System.out.println("------------------------------------");
-//		System.out.println("Try Delete myThing_3.");
-//		
-//		// Output result using Get
-//		queryString = "$count=true";
-//		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.THING, queryString);
-//		System.out.println("------------------------------------");
-//		System.out.println("Try get.");
-//		System.out.println("Return count: " + entityList.getCount());
-//		for( Object element: entityList.toArray() ) {
-//			Thing ob = (Thing) element;
-//			System.out.println(ob.getId() + " , " + ob.getName() + " , " + ob.getDescription());
-//		}
-//		
-//		
+		//Try Update
+		queryString = "$filter=name eq \'myThing_2\' and description eq \'Description for myThing_2\'";
+		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.THING, queryString);
+		Thing target = (Thing) entityList.toArray()[0];
+		target.setName("mything2_Updated");
+		target.setDescription("Updated description for myThing_2");
+		IdString id = (IdString) target.getId();
+		success = mmsk.update(target, id);
+		mmsk.ppm.commit();
+		System.out.println("------------------------------------");
+		System.out.println("Try Update myThing_2.");
+		
+		// Output result using Get
+		queryString = "$count=true";
+		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.THING, queryString);
+		System.out.println("------------------------------------");
+		System.out.println("Try get.");
+		System.out.println("Return count: " + entityList.getCount());
+		for( Object element: entityList.toArray() ) {
+			Thing ob = (Thing) element;
+			System.out.println(ob.getId() + " , " + ob.getName() + " , " + ob.getDescription());
+		}
+
+
+		//Try Delete
+		queryString = "$filter=name eq \'myThing_3\' and description eq \'Description for myThing_3\'";
+		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.THING, queryString);
+		target = (Thing) entityList.toArray()[0];
+		id = (IdString) target.getId();
+		success = mmsk.delete(EntityType.THING, id);
+		mmsk.ppm.commit();
+		System.out.println("------------------------------------");
+		System.out.println("Try Delete myThing_3.");
+		
+		// Output result using Get
+		queryString = "$count=true";
+		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.THING, queryString);
+		System.out.println("------------------------------------");
+		System.out.println("Try get.");
+		System.out.println("Return count: " + entityList.getCount());
+		for( Object element: entityList.toArray() ) {
+			Thing ob = (Thing) element;
+			System.out.println(ob.getId() + " , " + ob.getName() + " , " + ob.getDescription());
+		}
+		
+		
 //		//Try Insert deeper entities
 //		ObservedProperty op1 = new ObservedProperty();
 //		op1.setName("Temperature");
