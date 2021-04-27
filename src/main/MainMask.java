@@ -2,18 +2,28 @@ package main;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Properties;
 
+import org.geojson.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.fraunhofer.iosb.ilt.frostserver.messagebus.MessageBusFactory;
+import de.fraunhofer.iosb.ilt.frostserver.model.Datastream;
 import de.fraunhofer.iosb.ilt.frostserver.model.EntityType;
+import de.fraunhofer.iosb.ilt.frostserver.model.FeatureOfInterest;
+import de.fraunhofer.iosb.ilt.frostserver.model.Observation;
+import de.fraunhofer.iosb.ilt.frostserver.model.ObservedProperty;
+import de.fraunhofer.iosb.ilt.frostserver.model.Sensor;
 import de.fraunhofer.iosb.ilt.frostserver.model.Thing;
 import de.fraunhofer.iosb.ilt.frostserver.model.core.Entity;
 import de.fraunhofer.iosb.ilt.frostserver.model.core.EntitySetImpl;
 import de.fraunhofer.iosb.ilt.frostserver.model.core.Id;
 import de.fraunhofer.iosb.ilt.frostserver.model.core.IdString;
+import de.fraunhofer.iosb.ilt.frostserver.model.ext.TimeInstant;
+import de.fraunhofer.iosb.ilt.frostserver.model.ext.TimeInterval;
+import de.fraunhofer.iosb.ilt.frostserver.model.ext.UnitOfMeasurement;
 import de.fraunhofer.iosb.ilt.frostserver.parser.path.PathParser;
 import de.fraunhofer.iosb.ilt.frostserver.parser.query.QueryParser;
 import de.fraunhofer.iosb.ilt.frostserver.path.PathElementEntity;
@@ -111,13 +121,13 @@ public class MainMask {
 		
 		
 		// Get an entity with EntityType and ID.
-		Thing th = (Thing) mmsk.getEntityById(EntityType.THING, "saqn:t:grimm-aerosol.com:edm80opc:sn19001");
-		System.out.println("------------------------------------");
-		System.out.println(th.getName() + " , " + th.getDescription());
-		
-		System.out.println("------------------------------------");
-		Thing th2 = (Thing) mmsk.getEntityById(EntityType.THING, "saqn:t:grimm-aerosol.com:edm80opc:sn19004");
-		System.out.println(th2.getName() + " , " + th2.getDescription());
+//		Thing th = (Thing) mmsk.getEntityById(EntityType.THING, "saqn:t:grimm-aerosol.com:edm80opc:sn19001");
+//		System.out.println("------------------------------------");
+//		System.out.println(th.getName() + " , " + th.getDescription());
+//		
+//		System.out.println("------------------------------------");
+//		Thing th2 = (Thing) mmsk.getEntityById(EntityType.THING, "saqn:t:grimm-aerosol.com:edm80opc:sn19004");
+//		System.out.println(th2.getName() + " , " + th2.getDescription());
 		
 		
 		// Create and insert
@@ -202,180 +212,180 @@ public class MainMask {
 		}
 		
 		
-//		//Try Insert deeper entities
-//		ObservedProperty op1 = new ObservedProperty();
-//		op1.setName("Temperature");
-//		op1.setDescription("ObservedProperty used for testing ds1");
-//		op1.setDefinition("Float");
-//		success = mmsk.insert(op1);
-//		
-//		Sensor ss1 = new Sensor();
-//		ss1.setName("Temperature Sensor_1");
-//		ss1.setDescription("Sensor used for testing ds1");
-//		ss1.setEncodingType("utf8");
-//		ss1.setMetadata("true");
-//		success = mmsk.insert(ss1);
-//		
-//		Datastream ds1 = new Datastream();
-//		ds1.setName("Datastream1");
-//		ds1.setDescription("Datastream1, owned by myThing_1");
-//		HashMap<String, Object> h = new HashMap<String, Object>(){{put("pp",100);}};
-//		ds1.setProperties(h);
-//		ds1.setObservationType("filetype");
-//		ds1.setObservedArea(new Point(1.0,1.0,1.0,1.0));
-//		ds1.setPhenomenonTime(TimeInterval.create(100l, 110l));
-//		ds1.setResultTime(TimeInterval.create(100l, 110l));
-//		ds1.setSensor(ss1);
-//		ds1.setThing(myThing1);
-//		ds1.setUnitOfMeasurement(new UnitOfMeasurement("Degree", "C", "degree C"));
-//		ds1.setObservedProperty(op1);
-//		success = mmsk.insert(ds1);
-//		
-//		ObservedProperty op2 = new ObservedProperty();
-//		op2.setName("Height");
-//		op2.setDescription("ObservedProperty used for testing ds2");
-//		op2.setDefinition("Float");
-//		success = mmsk.insert(op2);
-//		
-//		Sensor ss2 = new Sensor();
-//		ss2.setName("Height Sensor_1");
-//		ss2.setDescription("Sensor used for testing ds2");
-//		ss2.setEncodingType("utf8");
-//		ss2.setMetadata("true");
-//		success = mmsk.insert(ss2);
-//		
-//		Datastream ds2 = new Datastream();
-//		ds2.setName("Datastream2");
-//		ds2.setDescription("Datastream2, owned by myThing_1");
-//		ds2.setProperties(h);
-//		ds2.setObservationType("filetype");
-//		ds2.setObservedArea(new Point(1.0,1.0,1.0,1.0));
-//		ds2.setPhenomenonTime(TimeInterval.create(100l, 110l));
-//		ds2.setResultTime(TimeInterval.create(100l, 110l));
-//		ds2.setSensor(ss2);
-//		ds2.setThing(myThing1);
-//		ds2.setUnitOfMeasurement(new UnitOfMeasurement("Meter", "m", "distance"));
-//		ds2.setObservedProperty(op2);
-//		success = mmsk.insert(ds2);
-//		
-//		FeatureOfInterest foi = new FeatureOfInterest();
-//		foi.setEncodingType("Point");
-//		foi.setFeature(new Point(1.0,1.0,1.0,1.0));
-//		success = mmsk.insert(foi);
-//		
-//		Observation os1 = new Observation();
-//		TimeInstant t = TimeInstant.now();
-//		os1.setPhenomenonTime(t);
-//		os1.setResultTime(t);
-//		os1.setResult(100);
-//		os1.setDatastream(ds1);
-//		os1.setFeatureOfInterest(foi);
-//		success = mmsk.insert(os1);
-//		
-//		Observation os2 = new Observation();
-//		t = TimeInstant.now();
-//		os2.setPhenomenonTime(t);
-//		os2.setResultTime(t);
-//		os2.setResult(105);
-//		os2.setDatastream(ds2);
-//		os2.setFeatureOfInterest(foi);
-//		success = mmsk.insert(os2);
-//		
-//		Observation os3 = new Observation();
-//		t = TimeInstant.now();
-//		os3.setPhenomenonTime(t);
-//		os3.setResultTime(t);
-//		os3.setResult(110);
-//		os3.setDatastream(ds2);
-//		os3.setFeatureOfInterest(foi);
-//		success = mmsk.insert(os3);
-//		
-//		System.out.println("------------------------------------");
-//		System.out.println("Try deeper insert.");
-//		mmsk.ppm.commit();
-//		
-//		
-//		// Output result using Get
-//		queryString = "$count=true";
-//		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.OBSERVATION, queryString);
-//		System.out.println("------------------------------------");
-//		System.out.println("Try get.");
-//		System.out.println("Return count: " + entityList.getCount());
-//		for( Object element: entityList.toArray() ) {
-//			Observation ob = (Observation) element;
-//			System.out.println(ob.getId() + " , " + ob.getResultTime() + " , " + ob.getResult());
-//		}
-//		
-//		
-//		//Try Update deeper entities
-//		queryString = "$filter=result eq 105";
-//		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.OBSERVATION, queryString);
-//		Observation targetob = (Observation) entityList.toArray()[0];
-//		
-//		targetob.setResult(500);
-//		mmsk.update(targetob, targetob.getId());
-//		System.out.println("------------------------------------");
-//		System.out.println("Try deeper update.");
-//		mmsk.ppm.commit();
-//		
-//		
-//		// Output result using Get
-//		queryString = "$count=true";
-//		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.OBSERVATION, queryString);
-//		System.out.println("------------------------------------");
-//		System.out.println("Try get.");
-//		System.out.println("Return count: " + entityList.getCount());
-//		for( Object element: entityList.toArray() ) {
-//			Observation ob = (Observation) element;
-//			System.out.println(ob.getId() + " , " + ob.getResultTime() + " , " + ob.getResult());
-//		}
-//		
-//		
-//		//Try Delete deeper entities
-//		queryString = "$filter=result eq 110";
-//		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.OBSERVATION, queryString);
-//		targetob = (Observation) entityList.toArray()[0];
-//
-//		mmsk.delete(EntityType.OBSERVATION, targetob.getId());
-//		System.out.println("------------------------------------");
-//		System.out.println("Try deeper delete.");
-//		mmsk.ppm.commit();
-//		
-//		
-//		// Output result using Get
-//		queryString = "$count=true";
-//		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.OBSERVATION, queryString);
-//		System.out.println("------------------------------------");
-//		System.out.println("Try get.");
-//		System.out.println("Return count: " + entityList.getCount());
-//		for( Object element: entityList.toArray() ) {
-//			Observation ob = (Observation) element;
-//			System.out.println(ob.getId() + " , " + ob.getResultTime() + " , " + ob.getResult());
-//		}
-//		
-//		
-//		//Try Delete middle entities
-//		queryString = "$filter=name eq\'Datastream1\'";
-//		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.DATASTREAM, queryString);
-//		Datastream targetds = (Datastream) entityList.toArray()[0];
-//
-//		mmsk.delete(EntityType.DATASTREAM, targetds.getId());
-//		System.out.println("------------------------------------");
-//		System.out.println("Try middle delete.");
-//		mmsk.ppm.commit();
-//		
-//		// Output result using Get
-//		queryString = "$count=true";
-//		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.OBSERVATION, queryString);
-//		System.out.println("------------------------------------");
-//		System.out.println("Try get.");
-//		System.out.println("Return count: " + entityList.getCount());
-//		for( Object element: entityList.toArray() ) {
-//			Observation ob = (Observation) element;
-//			System.out.println(ob.getId() + " , " + ob.getResultTime() + " , " + ob.getResult());
-//		}
-//		
-//		
+		//Try Insert deeper entities
+		ObservedProperty op1 = new ObservedProperty();
+		op1.setName("Temperature");
+		op1.setDescription("ObservedProperty used for testing ds1");
+		op1.setDefinition("Float");
+		success = mmsk.insert(op1);
+		
+		Sensor ss1 = new Sensor();
+		ss1.setName("Temperature Sensor_1");
+		ss1.setDescription("Sensor used for testing ds1");
+		ss1.setEncodingType("utf8");
+		ss1.setMetadata("true");
+		success = mmsk.insert(ss1);
+		
+		Datastream ds1 = new Datastream();
+		ds1.setName("Datastream1");
+		ds1.setDescription("Datastream1, owned by myThing_1");
+		HashMap<String, Object> h = new HashMap<String, Object>(){{put("pp",100);}};
+		ds1.setProperties(h);
+		ds1.setObservationType("filetype");
+		ds1.setObservedArea(new Point(1.0,1.0,1.0,1.0));
+		ds1.setPhenomenonTime(TimeInterval.create(100l, 110l));
+		ds1.setResultTime(TimeInterval.create(100l, 110l));
+		ds1.setSensor(ss1);
+		ds1.setThing(myThing1);
+		ds1.setUnitOfMeasurement(new UnitOfMeasurement("Degree", "C", "degree C"));
+		ds1.setObservedProperty(op1);
+		success = mmsk.insert(ds1);
+		
+		ObservedProperty op2 = new ObservedProperty();
+		op2.setName("Height");
+		op2.setDescription("ObservedProperty used for testing ds2");
+		op2.setDefinition("Float");
+		success = mmsk.insert(op2);
+		
+		Sensor ss2 = new Sensor();
+		ss2.setName("Height Sensor_1");
+		ss2.setDescription("Sensor used for testing ds2");
+		ss2.setEncodingType("utf8");
+		ss2.setMetadata("true");
+		success = mmsk.insert(ss2);
+		
+		Datastream ds2 = new Datastream();
+		ds2.setName("Datastream2");
+		ds2.setDescription("Datastream2, owned by myThing_1");
+		ds2.setProperties(h);
+		ds2.setObservationType("filetype");
+		ds2.setObservedArea(new Point(1.0,1.0,1.0,1.0));
+		ds2.setPhenomenonTime(TimeInterval.create(100l, 110l));
+		ds2.setResultTime(TimeInterval.create(100l, 110l));
+		ds2.setSensor(ss2);
+		ds2.setThing(myThing1);
+		ds2.setUnitOfMeasurement(new UnitOfMeasurement("Meter", "m", "distance"));
+		ds2.setObservedProperty(op2);
+		success = mmsk.insert(ds2);
+		
+		FeatureOfInterest foi = new FeatureOfInterest();
+		foi.setEncodingType("Point");
+		foi.setFeature(new Point(1.0,1.0,1.0,1.0));
+		success = mmsk.insert(foi);
+		
+		Observation os1 = new Observation();
+		TimeInstant t = TimeInstant.now();
+		os1.setPhenomenonTime(t);
+		os1.setResultTime(t);
+		os1.setResult(100);
+		os1.setDatastream(ds1);
+		os1.setFeatureOfInterest(foi);
+		success = mmsk.insert(os1);
+		
+		Observation os2 = new Observation();
+		t = TimeInstant.now();
+		os2.setPhenomenonTime(t);
+		os2.setResultTime(t);
+		os2.setResult(105);
+		os2.setDatastream(ds2);
+		os2.setFeatureOfInterest(foi);
+		success = mmsk.insert(os2);
+		
+		Observation os3 = new Observation();
+		t = TimeInstant.now();
+		os3.setPhenomenonTime(t);
+		os3.setResultTime(t);
+		os3.setResult(110);
+		os3.setDatastream(ds2);
+		os3.setFeatureOfInterest(foi);
+		success = mmsk.insert(os3);
+		
+		System.out.println("------------------------------------");
+		System.out.println("Try deeper insert.");
+		mmsk.ppm.commit();
+		
+		
+		// Output result using Get
+		queryString = "$count=true";
+		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.OBSERVATION, queryString);
+		System.out.println("------------------------------------");
+		System.out.println("Try get.");
+		System.out.println("Return count: " + entityList.getCount());
+		for( Object element: entityList.toArray() ) {
+			Observation ob = (Observation) element;
+			System.out.println(ob.getId() + " , " + ob.getResultTime() + " , " + ob.getResult());
+		}
+		
+		
+		//Try Update deeper entities
+		queryString = "$filter=result eq 105";
+		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.OBSERVATION, queryString);
+		Observation targetob = (Observation) entityList.toArray()[0];
+		
+		targetob.setResult(500);
+		mmsk.update(targetob, targetob.getId());
+		System.out.println("------------------------------------");
+		System.out.println("Try deeper update.");
+		mmsk.ppm.commit();
+		
+		
+		// Output result using Get
+		queryString = "$count=true";
+		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.OBSERVATION, queryString);
+		System.out.println("------------------------------------");
+		System.out.println("Try get.");
+		System.out.println("Return count: " + entityList.getCount());
+		for( Object element: entityList.toArray() ) {
+			Observation ob = (Observation) element;
+			System.out.println(ob.getId() + " , " + ob.getResultTime() + " , " + ob.getResult());
+		}
+		
+		
+		//Try Delete deeper entities
+		queryString = "$filter=result eq 110";
+		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.OBSERVATION, queryString);
+		targetob = (Observation) entityList.toArray()[0];
+
+		mmsk.delete(EntityType.OBSERVATION, targetob.getId());
+		System.out.println("------------------------------------");
+		System.out.println("Try deeper delete.");
+		mmsk.ppm.commit();
+		
+		
+		// Output result using Get
+		queryString = "$count=true";
+		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.OBSERVATION, queryString);
+		System.out.println("------------------------------------");
+		System.out.println("Try get.");
+		System.out.println("Return count: " + entityList.getCount());
+		for( Object element: entityList.toArray() ) {
+			Observation ob = (Observation) element;
+			System.out.println(ob.getId() + " , " + ob.getResultTime() + " , " + ob.getResult());
+		}
+		
+		
+		//Try Delete middle entities
+		queryString = "$filter=name eq\'Datastream1\'";
+		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.DATASTREAM, queryString);
+		Datastream targetds = (Datastream) entityList.toArray()[0];
+
+		mmsk.delete(EntityType.DATASTREAM, targetds.getId());
+		System.out.println("------------------------------------");
+		System.out.println("Try middle delete.");
+		mmsk.ppm.commit();
+		
+		// Output result using Get
+		queryString = "$count=true";
+		entityList = (EntitySetImpl) mmsk.getEntityByQuery(EntityType.OBSERVATION, queryString);
+		System.out.println("------------------------------------");
+		System.out.println("Try get.");
+		System.out.println("Return count: " + entityList.getCount());
+		for( Object element: entityList.toArray() ) {
+			Observation ob = (Observation) element;
+			System.out.println(ob.getId() + " , " + ob.getResultTime() + " , " + ob.getResult());
+		}
+		
+		
 		mmsk.ppm.close();
 	}
 }
