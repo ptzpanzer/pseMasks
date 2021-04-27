@@ -926,3 +926,138 @@ select "e0"."ID", "e0"."PROPERTIES", "e0"."NAME", "e0"."DESCRIPTION" from "THING
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.14.8
                                       
+2021-04-27 11:01:07,439 1036 [main] INFO  main.MainMask - Read 36 properties from src/Mask.properties.
+2021-04-27 11:01:07,599 1196 [main] INFO  d.f.i.i.f.settings.Settings - Not set logSensitiveData, using default value 'false'.
+2021-04-27 11:01:07,600 1197 [main] INFO  d.f.i.i.f.settings.Settings - Setting tempPath has value 'C:\Users\dell\AppData\Local\Temp\'.
+2021-04-27 11:01:07,602 1199 [main] INFO  d.f.i.i.f.settings.Settings - Not set enableActuation, using default value 'false'.
+2021-04-27 11:01:07,602 1199 [main] INFO  d.f.i.i.f.settings.Settings - Not set enableMultiDatastream, using default value 'true'.
+2021-04-27 11:01:07,602 1199 [main] INFO  d.f.i.i.f.settings.Settings - Setting serviceRootUrl has value 'http://localhost:8080/FROST-Server'.
+2021-04-27 11:01:07,602 1199 [main] INFO  d.f.i.i.f.settings.Settings - Not set useAbsoluteNavigationLinks, using default value 'true'.
+2021-04-27 11:01:07,603 1200 [main] INFO  d.f.i.i.f.settings.Settings - Not set defaultCount, using default value 'true'.
+2021-04-27 11:01:07,603 1200 [main] INFO  d.f.i.i.f.settings.Settings - Setting defaultTop has value '1000'.
+2021-04-27 11:01:07,603 1200 [main] INFO  d.f.i.i.f.settings.Settings - Setting maxTop has value '2000'.
+2021-04-27 11:01:07,603 1200 [main] INFO  d.f.i.i.f.settings.Settings - Setting maxDataSize has value '300000000'.
+2021-04-27 11:01:07,604 1201 [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.mqttServerImplementationClass has value 'de.fraunhofer.iosb.ilt.sensorthingsserver.mqtt.moquette.MoquetteMqttServer'.
+2021-04-27 11:01:07,604 1201 [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.Enabled has value 'true'.
+2021-04-27 11:01:07,604 1201 [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.Port has value '1883'.
+2021-04-27 11:01:07,604 1201 [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.Host has value '0.0.0.0'.
+2021-04-27 11:01:07,605 1202 [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.internalHost has value 'localhost'.
+2021-04-27 11:01:07,605 1202 [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.SubscribeMessageQueueSize has value '1000'.
+2021-04-27 11:01:07,605 1202 [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.SubscribeThreadPoolSize has value '20'.
+2021-04-27 11:01:07,605 1202 [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.CreateMessageQueueSize has value '1000'.
+2021-04-27 11:01:07,605 1202 [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.CreateThreadPoolSize has value '10'.
+2021-04-27 11:01:07,605 1202 [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.QoS has value '0'.
+2021-04-27 11:01:07,606 1203 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.persistenceManagerImplementationClass has value 'de.fraunhofer.iosb.ilt.frostserver.persistence.pgjooq.imp.PostgresPersistenceManagerString'.
+2021-04-27 11:01:07,606 1203 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.alwaysOrderbyId has value 'false'.
+2021-04-27 11:01:07,606 1203 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.idGenerationMode has value 'ServerGeneratedOnly'.
+2021-04-27 11:01:07,606 1203 [main] INFO  d.f.i.i.f.settings.Settings - Not set persistence.autoUpdateDatabase, using default value 'false'.
+2021-04-27 11:01:07,607 1204 [main] INFO  d.f.i.i.f.settings.Settings - Not set persistence.slowQueryThreshold, using default value '200'.
+2021-04-27 11:01:07,607 1204 [main] INFO  d.f.i.i.f.settings.Settings - Not set persistence.queryTimeout, using default value '0'.
+2021-04-27 11:01:07,608 1205 [main] INFO  d.f.i.i.f.settings.Settings - Setting bus.busImplementationClass has value 'de.fraunhofer.iosb.ilt.frostserver.messagebus.InternalMessageBus'.
+2021-04-27 11:01:07,610 1207 [main] INFO  d.f.i.i.f.settings.Settings - Not set extension.customLinks.enable, using default value 'false'.
+2021-04-27 11:01:07,611 1208 [main] INFO  d.f.i.i.f.settings.Settings - Not set plugins.providedPlugins, using default value 'de.fraunhofer.iosb.ilt.frostserver.formatter.PluginResultFormatDefault,de.fraunhofer.iosb.ilt.frostserver.plugin.batchprocessing.PluginBatchProcessing,de.fraunhofer.iosb.ilt.frostserver.plugin.format.dataarray.PluginResultFormatDataArray,de.fraunhofer.iosb.ilt.frostserver.plugin.format.csv.PluginResultFormatCsv,de.fraunhofer.iosb.ilt.frostserver.plugin.format.geojson.PluginResultFormatGeoJson,de.fraunhofer.iosb.ilt.frostserver.plugin.openapi.PluginOpenApi'.
+2021-04-27 11:01:07,669 1266 [main] WARN  d.f.i.i.f.service.PluginManager - Could not load given plugin class: 'de.fraunhofer.iosb.ilt.frostserver.plugin.batchprocessing.PluginBatchProcessing'
+2021-04-27 11:01:07,670 1267 [main] WARN  d.f.i.i.f.service.PluginManager - Could not load given plugin class: 'de.fraunhofer.iosb.ilt.frostserver.plugin.format.dataarray.PluginResultFormatDataArray'
+2021-04-27 11:01:07,670 1267 [main] WARN  d.f.i.i.f.service.PluginManager - Could not load given plugin class: 'de.fraunhofer.iosb.ilt.frostserver.plugin.format.csv.PluginResultFormatCsv'
+2021-04-27 11:01:07,670 1267 [main] WARN  d.f.i.i.f.service.PluginManager - Could not load given plugin class: 'de.fraunhofer.iosb.ilt.frostserver.plugin.format.geojson.PluginResultFormatGeoJson'
+2021-04-27 11:01:07,670 1267 [main] WARN  d.f.i.i.f.service.PluginManager - Could not load given plugin class: 'de.fraunhofer.iosb.ilt.frostserver.plugin.openapi.PluginOpenApi'
+2021-04-27 11:01:07,674 1271 [main] INFO  d.f.i.i.f.settings.Settings - Not set plugins.plugins, using default value ''.
+2021-04-27 11:01:09,541 3138 [main] INFO  d.f.i.i.f.settings.Settings - Not set bus.workerPoolSize, using default value '2'.
+2021-04-27 11:01:09,542 3139 [main] INFO  d.f.i.i.f.settings.Settings - Setting bus.queueSize has value '1000'.
+2021-04-27 11:01:09,569 3166 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.db.url has value '*****'.
+2021-04-27 11:01:09,570 3167 [main] INFO  d.f.i.i.f.p.p.utils.ConnectionUtils - Setting up BasicDataSource for database connections.
+2021-04-27 11:01:09,570 3167 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.db.driver has value 'org.postgresql.Driver'.
+2021-04-27 11:01:09,816 3413 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.db.url has value '*****'.
+2021-04-27 11:01:09,816 3413 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.db.username has value 'sensorthings'.
+2021-04-27 11:01:09,816 3413 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.db.password has value '*****'.
+2021-04-27 11:01:09,817 3414 [main] INFO  d.f.i.i.f.settings.Settings - Not set persistence.db.conn.idle.max, using default value '8'.
+2021-04-27 11:01:09,817 3414 [main] INFO  d.f.i.i.f.settings.Settings - Not set persistence.db.conn.max, using default value '8'.
+2021-04-27 11:01:09,817 3414 [main] INFO  d.f.i.i.f.settings.Settings - Not set persistence.db.conn.idle.min, using default value '0'.
+2021-04-27 11:01:12,200 5797 [main] INFO  org.jooq.Constants - 
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.14.8
+                                      
+2021-04-27 11:04:18,561 447  [main] INFO  main.MainMask - Read 36 properties from src/Mask.properties.
+2021-04-27 11:04:18,603 489  [main] INFO  d.f.i.i.f.settings.Settings - Not set logSensitiveData, using default value 'false'.
+2021-04-27 11:04:18,604 490  [main] INFO  d.f.i.i.f.settings.Settings - Setting tempPath has value 'C:\Users\dell\AppData\Local\Temp\'.
+2021-04-27 11:04:18,607 493  [main] INFO  d.f.i.i.f.settings.Settings - Not set enableActuation, using default value 'false'.
+2021-04-27 11:04:18,608 494  [main] INFO  d.f.i.i.f.settings.Settings - Not set enableMultiDatastream, using default value 'true'.
+2021-04-27 11:04:18,608 494  [main] INFO  d.f.i.i.f.settings.Settings - Setting serviceRootUrl has value 'http://localhost:8080/FROST-Server'.
+2021-04-27 11:04:18,608 494  [main] INFO  d.f.i.i.f.settings.Settings - Not set useAbsoluteNavigationLinks, using default value 'true'.
+2021-04-27 11:04:18,608 494  [main] INFO  d.f.i.i.f.settings.Settings - Not set defaultCount, using default value 'true'.
+2021-04-27 11:04:18,608 494  [main] INFO  d.f.i.i.f.settings.Settings - Setting defaultTop has value '1000'.
+2021-04-27 11:04:18,609 495  [main] INFO  d.f.i.i.f.settings.Settings - Setting maxTop has value '2000'.
+2021-04-27 11:04:18,609 495  [main] INFO  d.f.i.i.f.settings.Settings - Setting maxDataSize has value '300000000'.
+2021-04-27 11:04:18,611 497  [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.mqttServerImplementationClass has value 'de.fraunhofer.iosb.ilt.sensorthingsserver.mqtt.moquette.MoquetteMqttServer'.
+2021-04-27 11:04:18,612 498  [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.Enabled has value 'true'.
+2021-04-27 11:04:18,612 498  [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.Port has value '1883'.
+2021-04-27 11:04:18,612 498  [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.Host has value '0.0.0.0'.
+2021-04-27 11:04:18,612 498  [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.internalHost has value 'localhost'.
+2021-04-27 11:04:18,613 499  [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.SubscribeMessageQueueSize has value '1000'.
+2021-04-27 11:04:18,613 499  [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.SubscribeThreadPoolSize has value '20'.
+2021-04-27 11:04:18,613 499  [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.CreateMessageQueueSize has value '1000'.
+2021-04-27 11:04:18,613 499  [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.CreateThreadPoolSize has value '10'.
+2021-04-27 11:04:18,614 500  [main] INFO  d.f.i.i.f.settings.Settings - Setting mqtt.QoS has value '0'.
+2021-04-27 11:04:18,617 503  [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.persistenceManagerImplementationClass has value 'de.fraunhofer.iosb.ilt.frostserver.persistence.pgjooq.imp.PostgresPersistenceManagerString'.
+2021-04-27 11:04:18,617 503  [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.alwaysOrderbyId has value 'false'.
+2021-04-27 11:04:18,617 503  [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.idGenerationMode has value 'ServerAndClientGenerated'.
+2021-04-27 11:04:18,617 503  [main] INFO  d.f.i.i.f.settings.Settings - Not set persistence.autoUpdateDatabase, using default value 'false'.
+2021-04-27 11:04:18,618 504  [main] INFO  d.f.i.i.f.settings.Settings - Not set persistence.slowQueryThreshold, using default value '200'.
+2021-04-27 11:04:18,618 504  [main] INFO  d.f.i.i.f.settings.Settings - Not set persistence.queryTimeout, using default value '0'.
+2021-04-27 11:04:18,619 505  [main] INFO  d.f.i.i.f.settings.Settings - Setting bus.busImplementationClass has value 'de.fraunhofer.iosb.ilt.frostserver.messagebus.InternalMessageBus'.
+2021-04-27 11:04:18,622 508  [main] INFO  d.f.i.i.f.settings.Settings - Not set extension.customLinks.enable, using default value 'false'.
+2021-04-27 11:04:18,622 508  [main] INFO  d.f.i.i.f.settings.Settings - Not set plugins.providedPlugins, using default value 'de.fraunhofer.iosb.ilt.frostserver.formatter.PluginResultFormatDefault,de.fraunhofer.iosb.ilt.frostserver.plugin.batchprocessing.PluginBatchProcessing,de.fraunhofer.iosb.ilt.frostserver.plugin.format.dataarray.PluginResultFormatDataArray,de.fraunhofer.iosb.ilt.frostserver.plugin.format.csv.PluginResultFormatCsv,de.fraunhofer.iosb.ilt.frostserver.plugin.format.geojson.PluginResultFormatGeoJson,de.fraunhofer.iosb.ilt.frostserver.plugin.openapi.PluginOpenApi'.
+2021-04-27 11:04:18,626 512  [main] WARN  d.f.i.i.f.service.PluginManager - Could not load given plugin class: 'de.fraunhofer.iosb.ilt.frostserver.plugin.batchprocessing.PluginBatchProcessing'
+2021-04-27 11:04:18,626 512  [main] WARN  d.f.i.i.f.service.PluginManager - Could not load given plugin class: 'de.fraunhofer.iosb.ilt.frostserver.plugin.format.dataarray.PluginResultFormatDataArray'
+2021-04-27 11:04:18,626 512  [main] WARN  d.f.i.i.f.service.PluginManager - Could not load given plugin class: 'de.fraunhofer.iosb.ilt.frostserver.plugin.format.csv.PluginResultFormatCsv'
+2021-04-27 11:04:18,626 512  [main] WARN  d.f.i.i.f.service.PluginManager - Could not load given plugin class: 'de.fraunhofer.iosb.ilt.frostserver.plugin.format.geojson.PluginResultFormatGeoJson'
+2021-04-27 11:04:18,627 513  [main] WARN  d.f.i.i.f.service.PluginManager - Could not load given plugin class: 'de.fraunhofer.iosb.ilt.frostserver.plugin.openapi.PluginOpenApi'
+2021-04-27 11:04:18,630 516  [main] INFO  d.f.i.i.f.settings.Settings - Not set plugins.plugins, using default value ''.
+2021-04-27 11:04:19,317 1203 [main] INFO  d.f.i.i.f.settings.Settings - Not set bus.workerPoolSize, using default value '2'.
+2021-04-27 11:04:19,318 1204 [main] INFO  d.f.i.i.f.settings.Settings - Setting bus.queueSize has value '1000'.
+2021-04-27 11:04:19,339 1225 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.db.url has value '*****'.
+2021-04-27 11:04:19,339 1225 [main] INFO  d.f.i.i.f.p.p.utils.ConnectionUtils - Setting up BasicDataSource for database connections.
+2021-04-27 11:04:19,339 1225 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.db.driver has value 'org.postgresql.Driver'.
+2021-04-27 11:04:19,401 1287 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.db.url has value '*****'.
+2021-04-27 11:04:19,401 1287 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.db.username has value 'sensorthings'.
+2021-04-27 11:04:19,401 1287 [main] INFO  d.f.i.i.f.settings.Settings - Setting persistence.db.password has value '*****'.
+2021-04-27 11:04:19,401 1287 [main] INFO  d.f.i.i.f.settings.Settings - Not set persistence.db.conn.idle.max, using default value '8'.
+2021-04-27 11:04:19,401 1287 [main] INFO  d.f.i.i.f.settings.Settings - Not set persistence.db.conn.max, using default value '8'.
+2021-04-27 11:04:19,401 1287 [main] INFO  d.f.i.i.f.settings.Settings - Not set persistence.db.conn.idle.min, using default value '0'.
+2021-04-27 11:04:20,454 2340 [main] INFO  org.jooq.Constants - 
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.14.8
+                                      
+2021-04-27 11:04:20,817 2703 [main] INFO  d.f.i.i.f.p.p.IdGenerationHandler - Using client generated id.
