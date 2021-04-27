@@ -124,7 +124,7 @@ public class MainMask {
 		Thing myThing1 = new Thing();
 		myThing1.setName("myThing_1");
 		myThing1.setDescription("Description for myThing_1");
-		myThing1.setId(new IdString("string_id_1"));
+		myThing1.setId(new IdString("id_self_define_1"));
 		boolean success = mmsk.insert(myThing1);
 		System.out.println("------------------------------------");
 		System.out.println("Try create and insert.");
